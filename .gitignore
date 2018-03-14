@@ -489,3 +489,4 @@ paket-files/
 *.sln.iml
 
 out
+dist
