@@ -9,6 +9,6 @@ import splashView from './splashView';
 import createView from './createView';
 
 $( document ).ready( () => {
-	splashView()
-		.then( () => createView() );
+	splashView();
+		// .then( () => createView() );
 } );

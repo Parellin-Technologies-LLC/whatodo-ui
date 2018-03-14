@@ -6,24 +6,14 @@
 'use strict';
 
 export default function() {
-	console.log( 'CALLED' );
 	const
-		grid    = $( '#grid' ),
-		sidebar = $( '<div>' );
+		container = $( '#container' ),
+		grid      = $( '#grid' ),
+		sidebar   = $( '<div>' );
 	
-	sidebar
-		.attr( {
-			id: 'sidebar',
-			class: 'col-3'
-		} )
-		.css( {
-			position: 'absolute',
-			width: '100%',
-			height: '100%',
-			color: '#45B5EA'
-		} );
+	sidebar.attr( { id: 'sidebar', class: 'col-3' } );
+	grid.attr( { id: 'grid', class: 'row' } );
 	
 	grid.append( sidebar );
-	
-	console.log( 'createView' );
+	container.append( grid );
 }

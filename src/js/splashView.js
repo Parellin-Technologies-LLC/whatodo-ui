@@ -8,7 +8,9 @@
 export default function() {
 	return new Promise(
 		res => {
-			const splashText = $( '<h1>' );
+			const
+				container  = $( '#container' ),
+				splashText = $( '<h1>' );
 			
 			splashText
 				.css( {
@@ -39,7 +41,7 @@ export default function() {
 				);
 			} );
 			
-			$( '#container' ).append( splashText );
+			container.append( splashText );
 		}
 	);
 }

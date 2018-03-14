@@ -1,9 +1,19 @@
+@import 'variables';
+
 * {
 	font-family: Source Code Pro, Tahoma, sans-serif;
 }
 
-html, body {
-	padding: 12px 0 0 0;
+html {
+	padding: 0;
+	margin: 0;
+	width: 100%;
+	height: 100%;
+}
+
+body {
+	position: absolute;
+	padding: 24px 0 0 0;
 	margin: 0;
 	width: 100%;
 	height: 100%;
@@ -16,6 +26,7 @@ html, body {
 	padding: 0;
 	margin: 0;
 	width: 100%;
+	min-width: 100%;
 	height: 100%;
 	top: 0;
 	left: 0;

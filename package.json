@@ -65,7 +65,7 @@
 		"font-awesome": "^4.7.0",
 		"jquery": "^3.3.1",
 		"popper.js": "^1.14.1",
-		"whatodo": "^0.3.3"
+		"whatodo": "^0.3.4"
 	},
 	"devDependencies": {
 		"babel-core": "^6.26.0",
