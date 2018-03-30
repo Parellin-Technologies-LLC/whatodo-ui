@@ -9,13 +9,20 @@ export default function() {
 	return new Promise(
 		res => {
 			const
-				sidebar  = $( '#sidebar' ),
-				whatTodo = $( '<strong>' );
+				sidebar    = $( '#sidebar' ),
+				whatTodo   = $( '<strong>' ),
+				addProject = $( '<button>' ),
+				buttonIcon = $( '<i>' );
 			
 			whatTodo
-				.attr( { class: '' } )
+				.attr( { class: 'pr-5' } )
 				.text( 'Whatodo' );
 			
+			buttonIcon
+				.addClass( 'fa fa-plus-square' );
+			
+			addProject.append( buttonIcon );
+			sidebar.append( addProject );
 			sidebar.append( whatTodo );
 			
 			res();
