@@ -3805,6 +3805,18 @@ eval("// removed by extract-text-webpack-plugin\n\n//# sourceURL=webpack:///./cs
 
 /***/ }),
 
+/***/ "./js/buildSidebar.js":
+/*!****************************!*\
+  !*** ./js/buildSidebar.js ***!
+  \****************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("/* WEBPACK VAR INJECTION */(function($) {/** ****************************************************************************************************\n * File: buildSidebar.js\n * Project: whatodo-ui\n * @author Nick Soggin <iSkore@users.noreply.github.com> on 26-Mar-2018\n *******************************************************************************************************/\n\n\nObject.defineProperty(exports, \"__esModule\", {\n\tvalue: true\n});\n\nexports.default = function () {\n\treturn new Promise(function (res) {\n\t\tvar sidebar = $('#sidebar'),\n\t\t    whatTodo = $('<button>');\n\n\t\twhatTodo.attr({ class: 'btn btn-outline-light' }).text('Whatodo');\n\n\t\tsidebar.append(whatTodo);\n\n\t\tres();\n\t});\n};\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ \"../node_modules/jquery/dist/jquery.js\")))\n\n//# sourceURL=webpack:///./js/buildSidebar.js?");
+
+/***/ }),
+
 /***/ "./js/createView.js":
 /*!**************************!*\
   !*** ./js/createView.js ***!
@@ -3813,7 +3825,7 @@ eval("// removed by extract-text-webpack-plugin\n\n//# sourceURL=webpack:///./cs
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("/* WEBPACK VAR INJECTION */(function($) {/** ****************************************************************************************************\n * File: createView.js\n * Project: whatodo-ui\n * @author Nick Soggin <iSkore@users.noreply.github.com> on 13-Mar-2018\n *******************************************************************************************************/\n\n\nObject.defineProperty(exports, \"__esModule\", {\n\tvalue: true\n});\n\nexports.default = function () {\n\tconsole.log('CALLED');\n\tvar grid = $('#grid'),\n\t    sidebar = $('<div>');\n\n\tsidebar.attr({\n\t\tid: 'sidebar',\n\t\tclass: 'col-3'\n\t}).css({\n\t\tposition: 'absolute',\n\t\twidth: '100%',\n\t\theight: '100%',\n\t\tcolor: '#45B5EA'\n\t});\n\n\tgrid.append(sidebar);\n\n\tconsole.log('createView');\n};\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ \"../node_modules/jquery/dist/jquery.js\")))\n\n//# sourceURL=webpack:///./js/createView.js?");
+eval("/* WEBPACK VAR INJECTION */(function($) {/** ****************************************************************************************************\n * File: createView.js\n * Project: whatodo-ui\n * @author Nick Soggin <iSkore@users.noreply.github.com> on 13-Mar-2018\n *******************************************************************************************************/\n\n\nObject.defineProperty(exports, \"__esModule\", {\n\tvalue: true\n});\n\nexports.default = function (container) {\n\treturn new Promise(function (res) {\n\t\tvar grid = $('<div>'),\n\t\t    sidebar = $('<div>');\n\n\t\tsidebar.attr({ id: 'sidebar', class: 'col-3' });\n\n\t\tgrid.attr({ id: 'grid', class: 'row' }).css({\n\t\t\topacity: 0\n\t\t});\n\n\t\tgrid.animate({\n\t\t\topacity: 1\n\t\t}, 1000);\n\n\t\tgrid.append(sidebar);\n\t\tcontainer.append(grid);\n\n\t\tres();\n\t});\n};\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ \"../node_modules/jquery/dist/jquery.js\")))\n\n//# sourceURL=webpack:///./js/createView.js?");
 
 /***/ }),
 
@@ -3825,7 +3837,7 @@ eval("/* WEBPACK VAR INJECTION */(function($) {/** *****************************
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("/* WEBPACK VAR INJECTION */(function($) {/** ****************************************************************************************************\n * File: global.js\n * Project: whatodo-ui\n * @author Nick Soggin <iSkore@users.noreply.github.com> on 13-Mar-2018\n *******************************************************************************************************/\n\n\nvar _splashView = __webpack_require__(/*! ./splashView */ \"./js/splashView.js\");\n\nvar _splashView2 = _interopRequireDefault(_splashView);\n\nvar _createView = __webpack_require__(/*! ./createView */ \"./js/createView.js\");\n\nvar _createView2 = _interopRequireDefault(_createView);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\n$(document).ready(function () {\n  (0, _splashView2.default)().then(function () {\n    return (0, _createView2.default)();\n  });\n});\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ \"../node_modules/jquery/dist/jquery.js\")))\n\n//# sourceURL=webpack:///./js/global.js?");
+eval("/* WEBPACK VAR INJECTION */(function($) {/** ****************************************************************************************************\n * File: global.js\n * Project: whatodo-ui\n * @author Nick Soggin <iSkore@users.noreply.github.com> on 13-Mar-2018\n *******************************************************************************************************/\n\n\n\nvar _splashView = __webpack_require__(/*! ./splashView */ \"./js/splashView.js\");\n\nvar _splashView2 = _interopRequireDefault(_splashView);\n\nvar _createView = __webpack_require__(/*! ./createView */ \"./js/createView.js\");\n\nvar _createView2 = _interopRequireDefault(_createView);\n\nvar _buildSidebar = __webpack_require__(/*! ./buildSidebar */ \"./js/buildSidebar.js\");\n\nvar _buildSidebar2 = _interopRequireDefault(_buildSidebar);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\n$(document).ready(function () {\n\tvar container = $('#container');\n\n\t(0, _splashView2.default)(container).then(function () {\n\t\treturn (0, _createView2.default)(container);\n\t}).then(function () {\n\t\treturn (0, _buildSidebar2.default)();\n\t}).catch(console.error);\n});\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ \"../node_modules/jquery/dist/jquery.js\")))\n\n//# sourceURL=webpack:///./js/global.js?");
 
 /***/ }),
 
@@ -3849,7 +3861,7 @@ eval("/** **********************************************************************
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("/* WEBPACK VAR INJECTION */(function($) {/** ****************************************************************************************************\n * File: splashView.js\n * Project: whatodo-ui\n * @author Nick Soggin <iSkore@users.noreply.github.com> on 13-Mar-2018\n *******************************************************************************************************/\n\n\nObject.defineProperty(exports, \"__esModule\", {\n\tvalue: true\n});\n\nexports.default = function () {\n\treturn new Promise(function (res) {\n\t\tvar splashText = $('<h1>');\n\n\t\tsplashText.css({\n\t\t\tposition: 'absolute',\n\t\t\t'font-size': '6rem',\n\t\t\t'text-align': 'center',\n\t\t\tleft: '25%',\n\t\t\twidth: '50%',\n\t\t\tcolor: '#F5F6FA',\n\t\t\topacity: 0,\n\t\t\tbottom: '40%'\n\t\t}).text('Whatodos');\n\n\t\tsplashText.animate({\n\t\t\topacity: '1',\n\t\t\tbottom: '50%'\n\t\t}, 1500, function () {\n\t\t\tsetTimeout(function () {\n\t\t\t\treturn splashText.animate({ opacity: '0' }, 250, function () {\n\t\t\t\t\tres();\n\t\t\t\t\tsplashText.remove();\n\t\t\t\t});\n\t\t\t}, 1000);\n\t\t});\n\n\t\t$('#container').append(splashText);\n\t});\n};\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ \"../node_modules/jquery/dist/jquery.js\")))\n\n//# sourceURL=webpack:///./js/splashView.js?");
+eval("/* WEBPACK VAR INJECTION */(function($) {/** ****************************************************************************************************\n * File: splashView.js\n * Project: whatodo-ui\n * @author Nick Soggin <iSkore@users.noreply.github.com> on 13-Mar-2018\n *******************************************************************************************************/\n\n\nObject.defineProperty(exports, \"__esModule\", {\n\tvalue: true\n});\n\nexports.default = function (container) {\n\treturn new Promise(function (res) {\n\t\tvar splashText = $('<h1>');\n\n\t\tsplashText.css({\n\t\t\tposition: 'absolute',\n\t\t\t'font-size': '6rem',\n\t\t\t'text-align': 'center',\n\t\t\tleft: '25%',\n\t\t\twidth: '50%',\n\t\t\tcolor: '#F5F6FA',\n\t\t\topacity: 0,\n\t\t\tbottom: '40%'\n\t\t}).text('Whatodos');\n\n\t\tsplashText.animate({\n\t\t\topacity: 1,\n\t\t\tbottom: '50%'\n\t\t}, 1500, function () {\n\t\t\tsetTimeout(function () {\n\t\t\t\treturn splashText.animate({\n\t\t\t\t\topacity: 0,\n\t\t\t\t\tbottom: '55%'\n\t\t\t\t}, 500, function () {\n\t\t\t\t\tsplashText.remove();\n\t\t\t\t\tres();\n\t\t\t\t});\n\t\t\t}, 1000);\n\t\t});\n\n\t\tcontainer.append(splashText);\n\t});\n};\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ \"../node_modules/jquery/dist/jquery.js\")))\n\n//# sourceURL=webpack:///./js/splashView.js?");
 
 /***/ }),
 

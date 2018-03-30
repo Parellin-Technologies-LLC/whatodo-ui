@@ -6,5 +6,4 @@
 'use strict';
 
 module.exports = mainViewer => {
-	console.log( mainViewer );
 };

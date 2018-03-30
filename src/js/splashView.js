@@ -5,11 +5,10 @@
  *******************************************************************************************************/
 'use strict';
 
-export default function() {
+export default function( container ) {
 	return new Promise(
 		res => {
 			const
-				container  = $( '#container' ),
 				splashText = $( '<h1>' );
 			
 			splashText
@@ -26,16 +25,17 @@ export default function() {
 				.text( 'Whatodos' );
 			
 			splashText.animate( {
-				opacity: '1',
+				opacity: 1,
 				bottom: '50%'
 			}, 1500, () => {
 				setTimeout(
 					() => splashText.animate(
-						{ opacity: '0' },
-						250,
-						() => {
-							res();
+						{
+							opacity: 0,
+							bottom: '55%'
+						}, 500, () => {
 							splashText.remove();
+							res();
 						}
 					), 1000
 				);

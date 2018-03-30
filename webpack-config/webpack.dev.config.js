@@ -5,7 +5,17 @@
  *******************************************************************************************************/
 'use strict';
 
+import { resolve } from 'path';
 import Merge from 'webpack-merge';
 import CommonConfig from './webpack.base.config';
 
-export default Merge( CommonConfig, {} );
+export default Merge( CommonConfig, {
+	context: resolve( __dirname, '../src' ),
+	devServer: {
+		compress: true,
+		contentBase: './dist',
+		open: true,
+		port: 3000,
+		publicPath: '/'
+	}
+} );

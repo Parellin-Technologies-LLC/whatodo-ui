@@ -1,5 +1,3 @@
-@import 'variables';
-
 * {
 	font-family: Source Code Pro, Tahoma, sans-serif;
 }
@@ -18,7 +16,8 @@ body {
 	width: 100%;
 	height: 100%;
 	overflow: auto;
-	background-color: $purple;
+
+	background-color: $white_primary;
 }
 
 .container {
@@ -30,4 +29,5 @@ body {
 	height: 100%;
 	top: 0;
 	left: 0;
+	background-color: $purple_primary;
 }
