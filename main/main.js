@@ -23,7 +23,7 @@ function createWindow() {
 	
 	main.loadURL(
 		format( {
-			pathname: join( __dirname, 'dist', 'index.html' ),
+			pathname: join( Process.cwd, 'html', 'index.html' ),
 			protocol: 'file:',
 			slashes: true
 		} )
@@ -50,8 +50,11 @@ app.on( 'activate', function() {
 	}
 } );
 
-ipcMain.on( 'ready', ( event, args ) => {
-	event.sender.send( 'ready', args );
+ipcMain.on( 'ready', event => {
+	event.sender.send( 'ready', {
+		projects: Process.getProjects(),
+		homedir: Process.homedir
+	} );
 } );
 
 ipcMain.on( 'addProject', ( event, args ) => {

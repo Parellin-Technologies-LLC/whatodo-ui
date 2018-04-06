@@ -5,8 +5,9 @@
  *******************************************************************************************************/
 'use strict';
 
-import projects from './projects';
+import { join } from 'path';
 import { writeFile } from 'fs';
+import { homedir } from 'os';
 
 class Process
 {
@@ -18,8 +19,17 @@ class Process
 			height: 800
 		};
 		
-		this.projectsFile = 'projects.json';
-		this.projects = projects;
+		this.projectsFile = join( __dirname, 'projects.json' );
+		this.projects     = require( this.projectsFile );
+		this.homedir      = homedir();
+		this.cwd          = process.cwd();
+	}
+	
+	// TODO: add remove project and add X button to project list
+	
+	getProjects()
+	{
+		return this.projects;
 	}
 	
 	addProject( n )

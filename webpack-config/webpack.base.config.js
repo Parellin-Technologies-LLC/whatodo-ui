@@ -16,7 +16,7 @@ const
 	extractHtml    = new HtmlWebpackPlugin( {
 		title: name,
 		template: 'index.html',
-		filename: '../dist/index.html',
+		filename: '../html/index.html',
 		xhtml: true
 	} ),
 	extractModules = new webpack.ProvidePlugin( {
@@ -29,7 +29,7 @@ const
 	extractAssests = new CopyWebpackPlugin( [
 		{
 			from: './assets/',
-			to: '../dist/assets/'
+			to: '../html/assets/'
 		}
 	] );
 
@@ -39,7 +39,7 @@ export default {
 		app: [ './js/index.js' ]
 	},
 	output: {
-		path: resolve( __dirname, '../dist/' ),
+		path: resolve( __dirname, '../html/' ),
 		filename: 'js/bundle.js',
 		publicPath: './'
 	},
@@ -73,7 +73,7 @@ export default {
 			{
 				test: /\.(ttf|woff|woff2|svg|eot)$/,
 				use: {
-					loader: 'file-loader?publicPath=../&name=dist/fonts/[name].[ext]'
+					loader: 'file-loader?publicPath=../&name=html/fonts/[name].[ext]'
 				}
 			},
 			{

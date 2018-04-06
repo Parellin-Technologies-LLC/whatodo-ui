@@ -3,7 +3,7 @@
 	"productName": "whatodo-ui",
 	"version": "0.0.1",
 	"description": "Whatodo UI",
-	"main": "./main.js",
+	"main": "./main/main.js",
 	"scripts": {
 		"prod": "webpack --env=prod --mode production",
 		"clean": "npm outdated && npm prune",
@@ -36,7 +36,7 @@
 					"squirrel"
 				],
 				"darwin": [
-					"zip"
+					"zip", "dmg"
 				],
 				"linux": [
 					"deb",

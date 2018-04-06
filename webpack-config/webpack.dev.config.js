@@ -13,7 +13,7 @@ export default Merge( CommonConfig, {
 	context: resolve( __dirname, '../src' ),
 	devServer: {
 		compress: true,
-		contentBase: './dist',
+		contentBase: './html',
 		open: true,
 		port: 3000,
 		publicPath: '/'

@@ -13,14 +13,14 @@ import CommonConfig from './webpack.base.config';
 
 export default Merge( CommonConfig, {
 	plugins: [
-		new webpack.LoaderOptionsPlugin( {
-			minimize: false,
-			debug: false
-		} ),
+		// new webpack.LoaderOptionsPlugin( {
+		// 	minimize: false,
+		// 	debug: false
+		// } ),
 		new webpack.optimize.ModuleConcatenationPlugin(),
-		new UglifyJsPlugin( {
-			sourceMap: false
-		} ),
+		// new UglifyJsPlugin( {
+		// 	sourceMap: false
+		// } ),
 		new OptimizeCssAssetsPlugin( {
 			assetNameRegExp: /\.min\.css$/,
 			cssProcessorOptions: { discardComments: { removeAll: true } }

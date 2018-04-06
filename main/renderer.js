@@ -6,27 +6,30 @@
 'use strict';
 
 import { ipcRenderer, remote } from 'electron';
-import processProject from './lib/processProject';
+import processProject from '../lib/processProject';
+import { addProjectToList } from '../lib/sidebar';
+import { renderProject } from '../lib/container';
+import '../lib/index';
 
-const
-	main       = remote.require( './main' ),
-	{ dialog } = remote;
+const { dialog } = remote;
 
-import './lib/index';
+export let homedir = '';
 
-export default function() {
-	ipcRenderer.send( 'ready', 1 );
-	console.log( 'rendered' );
+export function ready() {
+	ipcRenderer.send( 'ready' );
 }
 
-ipcRenderer.on( 'ready', ( event, args ) => {
-	console.log( args );
-	console.log( main );
-} );
+export function listProjects( { projects } ) {
+	projects.forEach(
+		proj => addProjectToList( proj )
+	);
+}
 
-function loadProject( proj ) {
+export function loadProject( proj ) {
+	// TODO: show loading screen here
 	processProject( proj )
-		.then( console.log );
+		.then( renderProject )
+		.catch( console.error );
 }
 
 export function openProject() {
@@ -39,8 +42,10 @@ export function openProject() {
 						if( d.length >= 2 ) {
 							rej( 'can\'t select more than one project' );
 						} else {
-							ipcRenderer.send( 'addProject', d[ 0 ] );
-							loadProject( d[ 0 ] );
+							const dir = d[ 0 ];
+							ipcRenderer.send( 'addProject', dir );
+							loadProject( dir );
+							addProjectToList( dir );
 							res();
 						}
 					} else {
@@ -51,3 +56,8 @@ export function openProject() {
 		}
 	);
 }
+
+ipcRenderer.on( 'ready', ( event, args ) => {
+	homedir = args.homedir;
+	listProjects( args );
+} );
