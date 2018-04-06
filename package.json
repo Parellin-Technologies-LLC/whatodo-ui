@@ -3,18 +3,21 @@
 	"productName": "whatodo-ui",
 	"version": "0.0.1",
 	"description": "Whatodo UI",
-	"main": "main.js",
+	"main": "./main.js",
 	"scripts": {
 		"prod": "webpack --env=prod --mode production",
 		"clean": "npm outdated && npm prune",
 		"test": "mocha --trace-warnings",
+		"estart": "electron-forge start",
 		"start": "npm run prod && electron-forge start",
 		"package": "electron-forge package",
 		"make": "electron-forge make",
 		"publish": "electron-forge publish",
 		"lint": "eslint src --color",
 		"cleanInstall": "rm -rf package-lock.json node_modules/ && npm i",
-		"dev": "webpack-dev-server --env=dev --mode development"
+		"dev": "webpack-dev-server --env=dev --mode development",
+		"todo": "./node_modules/whatodo/cli.js -i ./ -o TODOS.json -f JSON && ./node_modules/whatodo/cli.js",
+		"docs": "jsdoc ./*.js ./**/*.js -R ./README.md -d docs/"
 	},
 	"keywords": [],
 	"author": "Parellin Technologies LLC",
@@ -65,7 +68,7 @@
 		"font-awesome": "^4.7.0",
 		"jquery": "^3.3.1",
 		"popper.js": "^1.14.1",
-		"whatodo": "^0.4.13"
+		"whatodo": "^0.4.15"
 	},
 	"devDependencies": {
 		"babel-core": "^6.26.0",
@@ -83,6 +86,7 @@
 		"electron": "^1.8.3",
 		"electron-forge": "^5.1.1",
 		"electron-prebuilt-compile": "1.8.2",
+		"electron-webpack": "^2.0.1",
 		"eslint": "^3.19.0",
 		"eslint-config-airbnb": "^15.1.0",
 		"eslint-plugin-import": "^2.9.0",

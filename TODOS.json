@@ -1,0 +1,43 @@
+[
+    {
+        "high": 3,
+        "mid": 1,
+        "low": 1,
+        "unknown": 0,
+        "file": "/Users/codebuddha/GitHub/whatodo-ui/lib/processProject.js",
+        "timing": "436 μs",
+        "todos": [
+            {
+                "priority": "high",
+                "line": 10,
+                "position": 0,
+                "comment": "get defaults for Whatodo from Process class"
+            },
+            {
+                "priority": "high",
+                "line": 11,
+                "position": 0,
+                "comment": "add title to middle of main container"
+            },
+            {
+                "priority": "high",
+                "line": 12,
+                "position": 0,
+                "comment": "load TODO cards from Whatodo results"
+            },
+            {
+                "priority": "mid",
+                "line": 13,
+                "position": 0,
+                "comment": "save minor project info and add badges to sidebar"
+            },
+            {
+                "priority": "low",
+                "line": 14,
+                "position": 0,
+                "comment": "connect to GitHub by checking .git and enable click-to-issue creation"
+            }
+        ],
+        "size": 996
+    }
+]

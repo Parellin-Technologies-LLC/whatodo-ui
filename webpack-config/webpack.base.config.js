@@ -46,7 +46,7 @@ export default {
 	module: {
 		rules: [
 			{
-				test: /\.(jpe?g|gif|png|svg|woff|ttf|wav|mp3)$/,
+				test: /\.(jpe?g|gif|png|svg|wav|mp3)$/,
 				use: {
 					loader: 'file-loader',
 					options: {
@@ -73,7 +73,7 @@ export default {
 			{
 				test: /\.(ttf|woff|woff2|svg|eot)$/,
 				use: {
-					loader: 'file-loader?publicPath=../&name=/fonts/[name].[ext]'
+					loader: 'file-loader?publicPath=../&name=dist/fonts/[name].[ext]'
 				}
 			},
 			{

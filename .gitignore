@@ -489,4 +489,4 @@ paket-files/
 *.sln.iml
 todo
 out
-dist
+dist/

@@ -1,18 +1,14 @@
 /** ****************************************************************************************************
- * File: main.js
+ * File: index.js
  * Project: whatodo-ui
  * @author Nick Soggin <iSkore@users.noreply.github.com> on 13-Mar-2018
  *******************************************************************************************************/
 'use strict';
 
-const
-	{
-		app,
-		BrowserWindow
-	}              = require( 'electron' ),
-	{ join }       = require( 'path' ),
-	{ format }     = require( 'url' ),
-	{ mainWindow } = require( './config' );
+import { app, ipcMain, BrowserWindow } from 'electron';
+import { join } from 'path';
+import { format } from 'url';
+import Process from './Process';
 
 if( require( 'electron-squirrel-startup' ) ) {
 	app.quit();
@@ -21,13 +17,17 @@ if( require( 'electron-squirrel-startup' ) ) {
 let main = null;
 
 function createWindow() {
-	main = new BrowserWindow( mainWindow );
+	main = new BrowserWindow( Process._mainWindow );
 	
-	main.loadURL( format( {
-		pathname: join( __dirname, 'dist', 'index.html' ),
-		protocol: 'file:',
-		slashes: true
-	} ) );
+	Process.mainWindow = main;
+	
+	main.loadURL(
+		format( {
+			pathname: join( __dirname, 'dist', 'index.html' ),
+			protocol: 'file:',
+			slashes: true
+		} )
+	);
 	
 	main.webContents.openDevTools();
 	
@@ -48,4 +48,12 @@ app.on( 'activate', function() {
 	if( main === null ) {
 		createWindow();
 	}
+} );
+
+ipcMain.on( 'ready', ( event, args ) => {
+	event.sender.send( 'ready', args );
+} );
+
+ipcMain.on( 'addProject', ( event, args ) => {
+	Process.addProject( args );
 } );
