@@ -1,7 +1,7 @@
 {
 	"name": "whatodo-ui",
 	"productName": "whatodo-ui",
-	"version": "0.0.1",
+	"version": "0.1.0",
 	"description": "Whatodo UI",
 	"main": "./main/main.js",
 	"scripts": {
@@ -36,7 +36,8 @@
 					"squirrel"
 				],
 				"darwin": [
-					"zip", "dmg"
+					"zip",
+					"dmg"
 				],
 				"linux": [
 					"deb",
