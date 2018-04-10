@@ -6,10 +6,10 @@
 'use strict';
 
 import { ipcRenderer, remote } from 'electron';
-import processProject from '../lib/processProject';
-import { addProjectToList } from '../lib/sidebar';
-import { renderProject } from '../lib/container';
-import '../lib/index';
+import processProject from './lib/processProject';
+import { addProjectToList } from './lib/sidebar';
+import { renderProject } from './lib/container';
+import './lib/index';
 
 const { dialog } = remote;
 

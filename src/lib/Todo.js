@@ -6,7 +6,7 @@
 'use strict';
 
 import $ from 'jquery';
-import { homedir } from '../main/renderer';
+import { homedir } from '../renderer';
 
 export default class Todo
 {

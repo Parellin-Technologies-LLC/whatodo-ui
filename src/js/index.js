@@ -6,5 +6,5 @@
 'use strict';
 
 import 'babel-polyfill';
-import '../css/main.scss';
+import '../scss/main.scss';
 import 'bootstrap';

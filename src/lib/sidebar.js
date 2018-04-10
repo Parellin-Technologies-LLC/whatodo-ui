@@ -7,7 +7,7 @@
 
 import $ from 'jquery';
 import { basename } from 'path';
-import { openProject, loadProject } from '../main/renderer';
+import { openProject, loadProject } from '../renderer';
 
 const
 	addProject  = $( '<div>' ),

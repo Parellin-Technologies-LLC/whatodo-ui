@@ -23,13 +23,13 @@ function createWindow() {
 	
 	main.loadURL(
 		format( {
-			pathname: join( Process.cwd, 'html', 'index.html' ),
+			pathname: join( Process.cwd, 'src', 'index.html' ),
 			protocol: 'file:',
 			slashes: true
 		} )
 	);
 	
-	main.webContents.openDevTools();
+	// main.webContents.openDevTools();
 	
 	main.on( 'closed', function() {
 		main = null;
