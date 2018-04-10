@@ -21,13 +21,19 @@ function createWindow() {
 	
 	Process.mainWindow = main;
 	
+	console.log( Process.cwd );
+	console.log( Process.dir );
+	
 	main.loadURL(
 		format( {
-			pathname: join( Process.cwd, 'src', 'index.html' ),
+			pathname: join( Process.dir, 'index.html' ),
 			protocol: 'file:',
 			slashes: true
 		} )
 	);
+	
+	console.log( join( Process.cwd, 'index.html' ) );
+	console.log( require( 'fs' ).readdirSync( './' ) );
 	
 	// main.webContents.openDevTools();
 	

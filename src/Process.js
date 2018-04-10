@@ -6,7 +6,7 @@
 'use strict';
 
 import { join } from 'path';
-import { writeFile } from 'fs';
+import { writeFile, createWriteStream } from 'fs';
 import { homedir } from 'os';
 
 class Process
@@ -19,10 +19,18 @@ class Process
 			height: 800
 		};
 		
-		this.projectsFile = join( __dirname, 'projects.json' );
+		
+		this.cwd          = process.cwd();
+		this.dir          = __dirname;
+		this.projectsFile = join( this.dir, 'projects.json' );
 		this.projects     = require( this.projectsFile );
 		this.homedir      = homedir();
-		this.cwd          = process.cwd();
+		
+		this.stdout = createWriteStream( __dirname + '/stdout.log', { flags: 'a' } );
+		this.stderr = createWriteStream( __dirname + '/stderr.log', { flags: 'a' } );
+		
+		process.stdout.pipe( this.stdout );
+		process.stderr.pipe( this.stderr );
 	}
 	
 	// TODO: add remove project and add X button to project list

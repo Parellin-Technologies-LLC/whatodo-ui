@@ -1,6 +1,6 @@
 {
 	"name": "whatodo-ui",
-	"productName": "whatodo-ui",
+	"productName": "whatodo",
 	"version": "0.1.0",
 	"description": "Whatodo UI",
 	"main": "./src/main.js",
@@ -8,7 +8,7 @@
 		"clean": "npm outdated && npm prune",
 		"test": "mocha --trace-warnings",
 		"estart": "electron-forge start",
-		"scss": "./node_modules/sass/sass.js  ./src/scss/main.scss ./src/style.css",
+		"scss": "./node_modules/sass/sass.js  ./scss/main.scss ./src/index.css",
 		"start": "npm run scss && electron-forge start",
 		"package": "electron-forge package",
 		"make": "electron-forge make",
@@ -44,7 +44,14 @@
 				]
 			},
 			"electronPackagerConfig": {
-				"packageManager": "npm"
+				"icon": "src/assets/whatodo.icns",
+				"packageManager": "npm",
+				"ignore": [
+					".vscode",
+					".idea",
+					".git",
+					"scss"
+				]
 			},
 			"electronWinstallerConfig": {
 				"name": "whatodo_ui"

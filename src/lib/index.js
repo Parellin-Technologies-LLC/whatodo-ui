@@ -6,6 +6,8 @@
 'use strict';
 
 import $ from 'jquery';
+import 'bootstrap';
+
 import splashView from './splashView';
 import createView from './createView';
 import { buildSidebar } from './sidebar';
